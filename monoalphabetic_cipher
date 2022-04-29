@@ -1,0 +1,60 @@
+print("----------------------------------------------------------------------------------------------------------------------")
+print("\t\t\t\t\t\t******MONOALPHABETIC CIPHER******\t\t")  
+
+import string
+while True:
+        print("\n1. For Encryption \n2. For Decryption \n3. Exit ")
+        x= int (input("Enter your choice : "))
+        if x==1:
+            
+            def encrypt_fun():
+
+                        plaintext = input("Enter your plain text here : ")
+                        #alph="abcdefghijklmnopqrstuvwxyz"
+                        key = "qwertyuioplkjhgfdsazxcvbnm"
+                        cipher = ""
+
+                        for c in plaintext:
+                            if c in string.ascii_lowercase:
+                                index= ord(c) - ord('a')
+                                cipher=cipher+key[index]
+                            elif c in string.ascii_uppercase:
+                                index= ord(c) - ord('A')
+                                cipher=cipher+key[index]
+                            else:
+                                cipher=cipher+c
+        
+                        print ("plain text:"+ plaintext)
+                        print("cipher text:"+ cipher)                                      
+        elif x==2:
+            
+            def decrypt_fun():
+                        cipher = input("Enter your cipher text here : ")
+                        #alph="abcdefghijklmnopqrstuvwxyz"
+                        key = "qwertyuioplkjhgfdsazxcvbnm"
+                        plaintext = ""
+
+                        for c in cipher:
+                            if c in string.ascii_lowercase:
+                                index= key.find(c)
+                                plaintext+= chr(index + ord('a'))
+                            elif c in string.ascii_uppercase:
+                                index= key.find(c)
+                                plaintext+= chr(index + ord('A'))
+                            else:
+                                plaintext=plaintext + c
+ 
+                        print("cipher text : "+cipher)
+                        print("plain text:"+ plaintext)                      
+
+            
+        elif x==3:
+            break
+            
+              
+        else:
+            print("You have entered the wrong choice! \nTRY AGAIN!")
+    
+print("----------------------------------------------------------------------------------------------------------------------")
+              
+              
