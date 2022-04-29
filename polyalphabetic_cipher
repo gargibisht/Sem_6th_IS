@@ -1,0 +1,44 @@
+print("----------------------------------------------------------------------------------------------------------------------")
+print("\t\t\t\t\t\t******POLYALPHABETIC CIPHER******\t\t")  
+
+def encrypt_fun():
+    plaintext = input("Enter your plain text here : ").upper()
+    key = input("Enter your key here : ").upper()
+    #key= generateKey(plaintext, key)
+    ciphertext=""
+    i=0
+    while(len(key)<len(plaintext)):
+        key+=key[i]
+        i=i+1
+    for i in range(len(plaintext)):
+        ciphertext+=chr(((ord(plaintext[i])+ord(key[i])-130)%26)+65)
+    print("The cipher text obtained is : " , ciphertext)
+   
+def decrypt_fun():
+    ciphertext = input("Enter your cipher text here : ").upper()
+    key = input("Enter your key here : ").upper()
+    #key= generateKey(ciphertext, key)
+    plaintext=""
+    i=0
+    while(len(key)<len(ciphertext)):
+        key+=key[i]
+        i=i+1
+    for i in range(len(ciphertext)):
+        plaintext+=chr(((ord(ciphertext[i])-ord(key[i])-130)%26)+65)
+   
+    print("The plain text obtained is : " , plaintext)
+
+
+while(1):
+   
+    choice=int(input("\n 1.Encryption \n 2.Decryption: \n 3.EXIT\n"))
+   
+    if choice==1:
+        encrypt_fun()
+       
+    elif choice==2:
+        decrypt_fun()
+    elif choice==3:
+        break
+    else:
+        print("Choose correct choice")
