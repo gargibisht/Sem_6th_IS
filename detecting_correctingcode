@@ -97,4 +97,5 @@ elif(option==2): # DETECT ERROR IN RECEIVED HAMMING CODE
 
 else:
     print('Option entered does not exist')
-
+#1011011
+#1010101 1110101error
